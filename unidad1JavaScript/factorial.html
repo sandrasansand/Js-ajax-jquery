@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>Programa 1</title>
+ </head>
+ <body>
+
+  <script type="text/javascript">
+
+   <!--
+
+    var nombre=0, sumatori=0, x=0;
+
+    //Pedimos valor de del numero y lo pasamos a integer
+    nombre=parseInt(prompt("Dame el numero entero del cual quieras hacer el factorial: ",""));
+
+    //imprimimos lo que el usuario vera primero:
+    document.write("El !" + nombre + "= " + nombre + " x ");
+
+    //Damos el valos a sumatori para luego en el bucle poder empezar desde el numero.
+    sumatori=nombre;
+
+    //Hacemos un for en el cual recorreremos todos los numero hasta llegar al nombre y vamos imprimiendo
+    for(x=nombre-1; x>0; x--)
+    {
+     if (x!=1)
+      document.write(x + " x ");
+     else 
+      document.write(x + "=");
+
+     sumatori=sumatori * x;
+    }
+
+    //Imprimimos el sumatorio
+    document.write(sumatori);
+   //-->
+
+  </script>
+
+ </body>
+</html>

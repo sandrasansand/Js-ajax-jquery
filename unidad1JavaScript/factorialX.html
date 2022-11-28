@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ejercicio factorial</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+   <!--
+
+    var numero=0, resultado=0, i=0;
+
+    //Pedimos valor de del numero y lo pasamos a integer
+    numero=parseInt(prompt("Dame el numero entero del cual quieras hacer el factorial: ",""));
+
+    //imprimimos lo que el usuario vera primero:
+    document.write("El !" + numero + "= " + numero + " x ");
+
+    //Damos el valos a resultado para luego en el bucle poder empezar desde el numero.
+    resultado=numero;
+
+    //Hacemos un for en el cual recorreremos todos los numero hasta llegar al nombre y vamos imprimiendo
+    for(i=numero-1; i>0; i--)
+    {
+     if (i!=1)
+      document.write(i + " x ");
+     else 
+      document.write(i + "=");
+
+     resultado=resultado * i;
+    }
+
+    //Imprimimos el sumatorio
+    document.write(resultado);
+   //-->
+
+  </script>
+  </body>
+  </html>

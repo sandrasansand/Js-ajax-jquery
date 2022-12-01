@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "UTF-8"/>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/functions.js"></script>
+<!-- <script>
+
+function objFormulario(nombre, apellidos, dni, telefono, correo, sexo)
+{
+  this.nombre=nombre;
+  this.apellidos=apellidos;
+  this.dni=dni;
+  this.telefono=telefono;
+  this.correo=correo;
+  this.sexo=sexo;
+}
+
+
+DATOS = new Array();
+posicion =0;
+
+function guardarDatos(f)
+{
+
+  if (!validar()) return;
+
+  var sexo;
+  if (f.male.checked) sexo="male";
+  else sexo="female";
+
+  objeto=new objFormulario(f.nombre.value,f.apellidos.value,f.dni.value,f.telefono.value,f.correo.value,sexo);
+  
+  posicion=DATOS.push(objeto);
+  alert("Se han guardado "+(posicion)+" objetos");
+  
+}
+
+
+function siguiente(f)
+{
+  
+  if ((posicion+1)>=DATOS.length)
+  {
+     alert("No quedan más datos, ya has llegado al final");
+  }
+  else
+  {
+     posicion++;
+     f.nombre.value=DATOS[posicion].nombre;
+     f.apellidos.value=DATOS[posicion].apellidos;
+     f.dni.value=DATOS[posicion].dni;
+     f.telefono.value=DATOS[posicion].telefono;
+     f.correo.value=DATOS[posicion].correo;
+
+     if (DATOS[posicion].sexo=="male") f.male.checked=true
+     else f.female.checked=true;
+  }
+}
+
+function anterior(f)
+{
+  if (posicion<=0)
+  {
+     alert("No quedan más datos, ya has llegado al principio");
+  }
+  else
+  {
+     posicion--;
+     f.nombre.value=DATOS[posicion].nombre;
+     f.apellidos.value=DATOS[posicion].apellidos;
+     f.dni.value=DATOS[posicion].dni;
+     f.telefono.value=DATOS[posicion].telefono;
+     f.correo.value=DATOS[posicion].correo;
+
+     if (DATOS[posicion].sexo=="male") f.male.checked=true
+     else f.female.checked=true;
+  }
+}
+
+
+function completo(campoform)
+{
+   valor = document.getElementById(campoform).value;
+   if (valor ==null || valor.length ==0)
+   {
+      alert("El campo '"+ campoform  +"' no puede ser vacío");
+      return false;
+   }
+   return true;
+}
+
+
+function validaRadio(v1,v2)
+{
+   if ((document.getElementById(v1).checked || document.getElementById(v2).checked)==false)
+   {
+      alert("El campo 'Sexo' no puede ser vacío");
+      return false;
+   }
+   return true;
+}
+
+
+function validaDNI(valdni)
+{
+  valor = document.getElementById(valdni).value;
+  var letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
+  
+  if (!(/^\d{8}[A-Z]$/.test(valor)))
+  {
+     alert("El dni introducido no es válido");
+     return false;
+  }
+
+  if (valor.charAt(8) != letras[(valor.substring(0,8))%23]) 
+  {
+     alert("La letra del dni no es correcta");
+     return false;
+  }
+
+  return true;
+}
+
+
+function validaTelefono(telf)
+{
+  valor = document.getElementById(telf).value;
+  if (!(/^\d{9}$/.test(valor)))
+  {
+     alert("El número de teléfono debe tener 9 dígitos");
+     return false;
+  }
+  return true;
+}
+
+
+function validaCorreo(correo)
+{
+  valor = document.getElementById(correo).value;
+  
+ 
+ if (! (/\w+([-\.]\w+)*@\w+([-\.]\w+)*\.\w+([-\.]\w+)*/.test(valor))  )
+  {
+    alert("El formato de la dirección de e-mail no es correcto");
+    return false;
+  }
+  return true;
+}
+
+
+function validar()
+{
+  if (!completo("nombre")) return false;
+    
+  if (!completo("apellidos")) return false;
+      
+  if (!completo("dni")) return false;
+        
+  if (!completo("telefono")) return false;
+          
+  if (!completo("correo")) return false;
+            
+ // if (!completo("foto")) return false;
+            
+  
+  if(!validaRadio("male","female")) return false;
+ 
+  if(!validaDNI("dni")) return false;
+      
+  if(!validaTelefono("telefono")) return false;
+
+  if(!validaCorreo("correo")) return false;
+        
+
+  return true;
+}
+
+
+
+</script> -->
+
+</head>
+<body>
+
+<div class="content">
+  <h2>Click on one of the text labels to toggle the related control:</h2>
+
+<form name="form1" id="formJs" action="demo_form.asp" method="post" onsubmit="return validar();">
+
+  <label for="nombre">Nombre: </label>
+  <input type="text" name="nombre" id="nombre" value=""/><br>
+
+  <label for="apellidos">Apellidos: </label>
+  <input type="text" name="apellidos" id="apellidos" value=""/><br>
+
+  <label for="dni">DNI: </label>
+  <input type="text" name="dni" id="dni" value=""/><br>
+
+  <label for="telefono">Teléfono: </label>
+  <input type="text" name="telefono" id="telefono" value=""/><br>
+
+  <label for="correo">E-mail: </label>
+  <input type="text" name="correo" id="correo" value=""/><br>
+
+
+  <label for="male">Hombre</label>
+  <input type="radio" name="sexo" id="male" value="male"/><br>
+  <label for="female">Mujer</label>
+  <input type="radio" name="sexo" id="female" value="female"/><br><br>
+  
+  <label for="foto">Tu foto: </label>
+  <input type="file" name="foto" id="foto" value=""/><br>
+
+  <label for="publicidad">Quieres recibir publicidad: </label>
+  <input name="publicidad" id="publicidad" type="checkbox" value="publicidad" checked="checked" /><br><br><br>
+
+<input type="button" class="coolBeans" value="Guardar" onclick="guardarDatos(form1)" > 
+<input type="reset" class="coolBeans" name="limpiar" value="Borrar los datos introducidos"/>
+<input type="button" class="coolBeans" value="Ver datos siguientes" onclick="siguiente(form1)" > 
+<input type="button" class="coolBeans" value="Ver datos anteriores" onclick="anterior(form1)" > 
+<input type="submit" class="coolBeans" value="Enviar" > 
+</form>
+
+</div>
+</body>
+</html>
